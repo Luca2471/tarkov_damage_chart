@@ -3,6 +3,7 @@
     <h1>Calibers list</h1>
     <div class="main-cpontainer">
       <calibers-list :calibers='calibers'></calibers-list>
+      <ammo-types-list :caliber='selectedCaliber'></ammo-types-list>
     </div>
     <ul>
     </ul>
@@ -11,7 +12,7 @@
 
 <script>
 import CalibersList from './components/CalibersList.vue';
-import AmmoType from './components/AmmoType.vue';
+import AmmoTypesList from './components/AmmoTypesList.vue';
 import { eventBus } from './main.js'
 
 export default {
@@ -27,27 +28,20 @@ export default {
       .then(res => res.json())
       .then(calibers => this.calibers = calibers)
 
-      eventBus.$on('calibers-selected', (caliber) => {
+      eventBus.$on('caliber-selected', (caliber) => {
         this.selectedCaliber = caliber
       })
     },
 
-    mounted(){
-        fetch('http://localhost:8080/ammotypes')
-        .then(res => res.json())
-        .then(ammotypes => this.ammotypes = ammotypes)
-
-        eventBus.$on('ammotype-selected', (ammotype) => {
-          this.selectedAmmoType = ammotype
-        })
-      },
-
   components: {
   "calibers-list": CalibersList,
-  "Ammo-type": AmmoType
+  "ammo-types-list": AmmoTypesList
   }
 }
 </script>
-
 <style lang="css" scoped>
+  .main-container {
+    display: flex;
+    justify-content: space-between;
+  }
 </style>

@@ -1,7 +1,7 @@
 <template lang="html">
 <div class="">
   <ul>
-    <list-item v-for="(caliber, index) in calibers" :caliber="caliber" :key="index"></list-item>
+    <list-item v-for="(caliber, index) in calibers" :caliber="caliber"></list-item>
   </ul>
 </div>
 </template>
@@ -12,8 +12,8 @@ import ListItem from './ListItem.vue';
 export default {
   name: 'calibers-list',
   props: ['calibers'],
-  components:{
-    "list-item": ListItem
+  components: {
+    'list-item': ListItem
   }
 }
 </script>

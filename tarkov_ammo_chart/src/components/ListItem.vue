@@ -1,5 +1,5 @@
 <template lang="html">
-  <li v-on:click="handleClick">{{caliber.name}}</li>
+  <ul v-on:click="handleClick">{{caliber.name}}</ul>
 </template>
 
 <script>
@@ -10,7 +10,7 @@ export default {
   props: ['caliber'],
   methods:{
     handleClick(){
-      eventBus.$emit('name-selected', this.caliber)
+      eventBus.$emit('caliber-selected', this.caliber)
     }
   }
 }

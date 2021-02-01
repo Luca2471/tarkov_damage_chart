@@ -1,28 +1,53 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+<template lang="html">
+  <div>
+    <h1>Calibers list</h1>
+    <div class="main-cpontainer">
+      <calibers-list :calibers='calibers'></calibers-list>
+    </div>
+    <ul>
+    </ul>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CalibersList from './components/CalibersList.vue';
+import AmmoType from './components/AmmoType.vue';
+import { eventBus } from './main.js'
 
 export default {
-  name: 'App',
+  name: 'app',
+  data() {
+    return {
+      calibers: [],
+      selectedCaliber: null
+    };
+  },
+  mounted(){
+      fetch('http://localhost:8080/calibers')
+      .then(res => res.json())
+      .then(calibers => this.calibers = calibers)
+
+      eventBus.$on('calibers-selected', (caliber) => {
+        this.selectedCaliber = caliber
+      })
+    },
+
+    mounted(){
+        fetch('http://localhost:8080/ammotypes')
+        .then(res => res.json())
+        .then(ammotypes => this.ammotypes = ammotypes)
+
+        eventBus.$on('ammotype-selected', (ammotype) => {
+          this.selectedAmmoType = ammotype
+        })
+      },
+
   components: {
-    HelloWorld
+  "calibers-list": CalibersList,
+  "Ammo-type": AmmoType
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="css" scoped>
 </style>

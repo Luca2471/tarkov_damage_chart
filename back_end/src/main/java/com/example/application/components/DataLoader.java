@@ -33,16 +33,14 @@ public class DataLoader implements ApplicationRunner {
         Caliber fortyFive = new Caliber(".45");
         Caliber nineByTwentyOne = new Caliber("9x21mm");
         Caliber fiveSevenByTwentyEight = new Caliber("5.7x28mm");
-        Caliber fourSixByThirty = new Caliber("6.6x30mm");
-        Caliber fourByThirty = new Caliber("4.6x30mm");
+        Caliber fourSixByThirty = new Caliber("4.6x30mm");
         Caliber nineByThirtyNine = new Caliber("9x39mm");
         Caliber threeSixSix = new Caliber(".366");
         Caliber fiveFourFive = new Caliber("5.45x39mm");
         Caliber fiveFiveSix = new Caliber("5.56x45mm");
-        Caliber sevenSixTwoNato = new Caliber("7.63x45mm");
+        Caliber sevenSixTwoNato = new Caliber("7.62x51mm");
         Caliber sevenSixTwoPact = new Caliber("7.62x39mm");
         Caliber threeHundredBlk = new Caliber(".300 blk");
-        Caliber thirtyAughtSix = new Caliber("762x51");
         Caliber sevenSixTwoR = new Caliber("7.62x54r");
         Caliber twelveSevenByFiftyFour = new Caliber("12.7x55mm");
         Caliber threThreEightLapua = new Caliber(".338 Lapua Magnum");
@@ -59,7 +57,6 @@ public class DataLoader implements ApplicationRunner {
         caliberRepository.save(nineByTwentyOne);
         caliberRepository.save(fiveSevenByTwentyEight);
         caliberRepository.save(fourSixByThirty);
-        caliberRepository.save(fourByThirty);
         caliberRepository.save(nineByThirtyNine);
         caliberRepository.save(threeSixSix);
         caliberRepository.save(fiveFourFive);
@@ -67,7 +64,6 @@ public class DataLoader implements ApplicationRunner {
         caliberRepository.save(sevenSixTwoNato);
         caliberRepository.save(sevenSixTwoPact);
         caliberRepository.save(threeHundredBlk);
-        caliberRepository.save(thirtyAughtSix);
         caliberRepository.save(sevenSixTwoR);
         caliberRepository.save(twelveSevenByFiftyFour);
         caliberRepository.save(threThreEightLapua);
@@ -200,7 +196,7 @@ public class DataLoader implements ApplicationRunner {
         ammoTypeRepository.save(rip45);
         AmmoType hydroshock = new AmmoType("Hydroshock", 95, 13, 30, 50, 6, 3, 0, 0, 0, 0, fortyFive);
         ammoTypeRepository.save(hydroshock);
-        AmmoType lasermatchTracer = new AmmoType("Lasermatch (tracer", 74, 19, 37, 1, 6, 5, 1, 0, 0, 0, fortyFive);
+        AmmoType lasermatchTracer = new AmmoType("Lasermatch (tracer)", 74, 19, 37, 1, 6, 5, 1, 0, 0, 0, fortyFive);
         ammoTypeRepository.save(lasermatchTracer);
         AmmoType aCP = new AmmoType("ACP", 69, 23, 36, 1, 6, 6, 2, 1, 0, 0, fortyFive);
         ammoTypeRepository.save(aCP);
@@ -234,7 +230,7 @@ public class DataLoader implements ApplicationRunner {
         ammoTypeRepository.save(subsonicSX);
         AmmoType fmjSX = new AmmoType("FMJ SX", 43, 40, 41, 20, 6, 6, 6, 6, 4, 3, fourSixByThirty);
         ammoTypeRepository.save(fmjSX);
-        AmmoType apSX = new AmmoType("AP SX", 35, 53, 46, 10, 6, 6, 6, 6, 6, 5, fourSixByThirty);
+        AmmoType apSX = new AmmoType("AP SX", 35, 53, 46, 10, 6, 6, 6, 6, 6, 5,  fourSixByThirty);
         ammoTypeRepository.save(apSX);
         AmmoType sp5 = new AmmoType("sp5", 68, 38, 52, 20, 6, 6, 6, 5, 4, 3, nineByThirtyNine);
         ammoTypeRepository.save(sp5);

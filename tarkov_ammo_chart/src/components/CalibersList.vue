@@ -20,4 +20,14 @@ export default {
 
 <style lang="css" scoped>
 
+ul {
+  display:inline-block;
+  margin: 0;
+  justify-content: flex-start;
+  align-items: center;
+  padding:10px;
+  height: 20%;
+  position:relative;
+}
+
 </style>
